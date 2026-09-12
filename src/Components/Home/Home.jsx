@@ -1,66 +1,78 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import guruLogo from '../../assets/guru-logo.jpeg'
 
 function Home() {
   return (
     <div className="bg-[#0b0b0b] text-white">
 
       {/* ================= HERO ================= */}
-      <section className="relative min-h-[90vh] overflow-hidden">
+<section className="relative min-h-[90vh] overflow-hidden">
 
-        {/* Background */}
-        <div className="absolute inset-0">
-          <img
-            src="/img/hero-bg.jpg"
-            alt=""
-            className="h-full w-full object-cover opacity-40"
-          />
+  {/* Background video */}
+  <div className="absolute inset-0">
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="h-full w-full object-cover"
+      poster="/images/hero-poster.jpg"
+    >
+      <source src="proj-1.mp4" type="video/mp4" />
+    </video>
 
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
+    {/* Gradient overlay: darker left where text sits, lighter right to let video breathe */}
+    <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
+    {/* Bottom fade so it blends into next section */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+  </div>
 
-        {/* Content */}
-        <div className="relative mx-auto flex min-h-[90vh] max-w-7xl items-center px-6">
+  {/* Content */}
+  <div className="relative mx-auto flex min-h-[90vh] max-w-7xl items-center px-6">
 
-          <div className="max-w-3xl">
+    <div className="max-w-3xl">
 
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-green-600">
-              Creative Video Editor
-            </p>
+      <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-green-500">
+        Creative Video Editor
+      </p>
 
-            <h1 className="text-5xl font-bold leading-tight sm:text-6xl lg:text-7xl">
-              We Turn Your
-              <span className="block text-green-600">
-                Ideas Into Stories.
-              </span>
-            </h1>
+      <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+        We turn your{" "}
+        <span className="inline-block text-green-500 transition-all duration-500 hover:-translate-y-2 hover:scale-105">
+          ideas into stories.
+        </span>
+      </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
-              Professional video editing, motion graphics, color grading,
-              and visual storytelling designed to make your content stand out.
-            </p>
+      <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
+        Professional video editing, motion graphics, color grading,
+        and visual storytelling designed to make your content stand out.
+      </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+      <div className="mt-8 flex flex-wrap items-center gap-4">
+        <Link
+          to="/portfolio"
+          className="rounded-full bg-green-600 px-7 py-3.5 font-semibold transition hover:bg-green-500"
+        >
+          View Our Work
+        </Link>
 
-              <Link
-                to="/portfolio"
-                className="rounded-full bg-green-600 px-7 py-3.5 font-semibold transition hover:bg-green-600"
-              >
-                View Our Work
-              </Link>
+        <Link
+          to="/contact"
+          className="rounded-full border border-white/40 px-7 py-3.5 font-semibold transition hover:border-green-500 hover:text-green-500"
+        >
+          Let's Work Together
+        </Link>
+      </div>
 
-              <Link
-                to="/contact"
-                className="rounded-full border border-white/30 px-7 py-3.5 font-semibold transition hover:border-green-600 hover:text-green-600"
-              >
-                Let's Work Together
-              </Link>
+      {/* Trust signal */}
+      <p className="mt-8 text-sm text-gray-400">
+        50+ brands trusted · 200+ projects delivered
+      </p>
 
-            </div>
-
-          </div>
-        </div>
-      </section>
+    </div>
+  </div>
+</section>
 
 
       {/* ================= ABOUT ================= */}
@@ -72,7 +84,7 @@ function Home() {
           <div className="relative">
 
             <img
-              src="/img/about.jpg"
+              src={guruLogo}
               alt="GURU EDITORS"
               className="w-full rounded-2xl object-cover"
             />
@@ -235,21 +247,24 @@ function Home() {
           <div className="mt-12 grid gap-6 md:grid-cols-2">
 
             {[
-              "/img/project-1.jpg",
-              "/img/project-2.jpg",
-              "/img/project-3.jpg",
-              "/img/project-4.jpg"
-            ].map((image, index) => (
+              "/proj-1.mp4",
+              "/proj-2.mp4",
+              "/proj-3.mp4",
+              "/proj-4.mp4"
+            ].map((video, index) => (
 
               <Link
                 to="/portfolio"
-                key={image}
+                key={video}
                 className="group relative overflow-hidden rounded-2xl"
               >
 
-                <img
-                  src={image}
-                  alt={`Project ${index + 1}`}
+                <video
+                  src={video}
+                  loop
+                  muted
+                  playsInline
+                  autoPlay
                   className="h-80 w-full object-cover transition duration-500 group-hover:scale-105"
                 />
 
@@ -309,3 +324,61 @@ function Home() {
 }
 
 export default Home;
+
+
+
+      // { <section className="relative min-h-[90vh] overflow-hidden">
+
+      //   {/* Background */}
+      //   <div className="absolute inset-0">
+      //     {/* <img
+      //       src={guruLogo}
+      //       alt=""
+      //       className="h-full w-full object-cover opacity-40"
+      //     /> */}
+
+      //     <div className="absolute inset-0 bg-black/60" />
+      //   </div>
+
+      //   {/* Content */}
+      //   <div className="relative mx-auto flex min-h-[90vh] max-w-7xl items-center px-6">
+
+      //     <div className="max-w-3xl">
+
+      //       <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-green-600">
+      //         Creative Video Editor
+      //       </p>
+
+      //      <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+      //       We turn your{" "}
+      //       <span className="inline-block text-green-600 transition-all duration-500 hover:-translate-y-2 hover:scale-105">
+      //         ideas into stories.
+      //       </span>
+      //     </h1>
+
+      //       <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
+      //         Professional video editing, motion graphics, color grading,
+      //         and visual storytelling designed to make your content stand out.
+      //       </p>
+
+      //       <div className="mt-8 flex flex-wrap gap-4">
+
+      //         <Link
+      //           to="/portfolio"
+      //           className="rounded-full bg-green-600 px-7 py-3.5 font-semibold transition hover:bg-green-600"
+      //         >
+      //           View Our Work
+      //         </Link>
+
+      //         <Link
+      //           to="/contact"
+      //           className="rounded-full border border-white/30 px-7 py-3.5 font-semibold transition hover:border-green-600 hover:text-green-600"
+      //         >
+      //           Let's Work Together
+      //         </Link>
+
+      //       </div>
+
+      //     </div>
+      //   </div>
+      // </section>}
