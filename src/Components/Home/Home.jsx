@@ -350,7 +350,7 @@ function Home() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {/* FIX: Using the directly imported videos array here */}
-            {[guruVideo1, guruVideo2, guruVideo3, guruVideo4].map(
+            {[guruVideo1, guruVideo2, guruVideo1, guruVideo2].map(
               (video, index) => (
                 <Link
                   to="/portfolio"
