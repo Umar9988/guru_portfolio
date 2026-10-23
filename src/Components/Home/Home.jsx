@@ -8,8 +8,7 @@ import guruLogo from '../../assets/guru-logo.jpeg'
 // FIX: Importing videos directly so they actually load
 import guruVideo1 from '../../assets/video/proj-1.mp4'
 import guruVideo2 from '../../assets/video/proj-2.mp4'
-import guruVideo3 from '../../assets/video/proj-3.mp4'
-import guruVideo4 from '../../assets/video/proj-4.mp4'
+
 
 function StatCard({ end, suffix = '', label }) {
   const { count, ref } = useCountUp(end, 2000)

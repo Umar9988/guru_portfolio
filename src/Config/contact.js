@@ -6,7 +6,7 @@ export const CONTACT = {
   email: 'guru.editors@gmail.com',
   whatsappNumber: '923010424240',
   whatsappDefaultMessage: "Hi Guru Editors 👋 I'd like to discuss a video editing project.",
-  web3formsAccessKey: 'YOUR_WEB3FORMS_ACCESS_KEY',
+  web3formsAccessKey: '8a2a1eb4-3dce-4fbb-ad0b-cf694a7dee36',
 
   // YOUR SOCIAL MEDIA & PLATFORM LINKS (Replace with your real profile links)
   socials: {
