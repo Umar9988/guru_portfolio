@@ -1,49 +1,76 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import guruLogo from '../../assets/guru-logo.jpeg'
+import { CONTACT } from '../../Config/contact'
 
 function Footer() {
   const currentYear = new Date().getFullYear()
+
+  const socialLinks = [
+    {
+      name: 'Instagram',
+      url: CONTACT.socials.instagram,
+      icon: 'https://img.icons8.com/3d-fluency/94/instagram-new.png',
+    },
+    {
+      name: 'YouTube',
+      url: CONTACT.socials.youtube,
+      icon: 'https://img.icons8.com/3d-fluency/94/youtube-play.png',
+    },
+    {
+      name: 'Fiverr',
+      url: CONTACT.socials.fiverr,
+      icon: 'https://img.icons8.com/color/96/fiverr.png',
+    },
+    {
+      name: 'Facebook',
+      url: CONTACT.socials.facebook,
+      icon: 'https://img.icons8.com/3d-fluency/94/facebook-circled.png',
+    },
+  ]
 
   return (
     <footer className="bg-[#0a0a0a] text-white border-t border-white/10">
       <div className="mx-auto max-w-7xl px-6">
 
-        {/* Top */}
+        {/* Top Header Section */}
         <div className="flex flex-col items-center justify-between gap-6 border-b border-white/10 py-10 md:flex-row">
 
+          {/* Logo & Name */}
           <Link to="/" className="flex items-center gap-3">
             <img
               src={guruLogo}
               alt="GURU EDITORS"
-              className="h-14 w-14 rounded-full object-cover"
+              className="h-14 w-14 rounded-full object-cover border border-white/10"
             />
             <div>
-              <p className="text-lg font-bold">GURU EDITORS</p>
-              <p className="text-xs text-gray-500">Video Editing Studio</p>
+              <p className="text-lg font-bold tracking-tight">GURU EDITORS</p>
+              <p className="text-xs text-gray-400">Professional Video Studio</p>
             </div>
           </Link>
 
-          {/* Social Icons */}
-          <div className="flex gap-3">
-            {[
-              { label: 'In', href: '#' },
-              { label: 'Ig', href: '#' },
-              { label: 'Yt', href: '#' },
-              { label: 'Li', href: '#' },
-            ].map((social) => (
+          {/* 3D PNG Social Platform Icons */}
+          <div className="flex items-center gap-4">
+            {socialLinks.map((platform) => (
               <a
-                key={social.label}
-                href={social.href}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-xs font-bold text-gray-400 transition hover:border-green-600 hover:bg-green-600 hover:text-black"
+                key={platform.name}
+                href={platform.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={platform.name}
+                className="group flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-[#141414] p-2 transition-all duration-300 hover:-translate-y-1 hover:border-green-500/50 hover:bg-[#1f1f1f] hover:shadow-lg hover:shadow-green-500/10"
               >
-                {social.label}
+                <img
+                  src={platform.icon}
+                  alt={platform.name}
+                  className="h-8 w-8 object-contain transition-transform duration-300 group-hover:scale-110"
+                />
               </a>
             ))}
           </div>
         </div>
 
-        {/* Footer Content */}
+        {/* Footer Content Grid */}
         <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
 
           {/* About */}
@@ -58,14 +85,11 @@ function Footer() {
               to="/about"
               className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-green-500 transition hover:text-green-400"
             >
-              Read More
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              Read More →
             </Link>
           </div>
 
-          {/* Company */}
+          {/* Quick Links */}
           <div>
             <h3 className="mb-5 text-lg font-semibold">Company</h3>
             <ul className="space-y-3 text-sm text-gray-400">
@@ -85,7 +109,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Services List */}
           <div>
             <h3 className="mb-5 text-lg font-semibold">Services</h3>
             <ul className="space-y-3 text-sm text-gray-400">
@@ -116,7 +140,6 @@ function Footer() {
             <form
               onSubmit={(e) => {
                 e.preventDefault()
-                // Handle newsletter subscription
                 alert('Thank you for subscribing!')
                 e.target.reset()
               }}
@@ -132,9 +155,7 @@ function Footer() {
                 type="submit"
                 className="flex w-12 items-center justify-center bg-green-600 transition hover:bg-green-500"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                ➔
               </button>
             </form>
           </div>
@@ -142,9 +163,7 @@ function Footer() {
 
         {/* Bottom */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-6 text-center text-xs text-gray-500 md:flex-row">
-          <p>
-            © {currentYear} GURU EDITORS. All rights reserved.
-          </p>
+          <p>© {currentYear} GURU EDITORS. All rights reserved.</p>
 
           <div className="flex gap-5">
             <Link to="/privacy" className="transition hover:text-green-500">
