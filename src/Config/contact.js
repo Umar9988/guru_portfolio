@@ -3,7 +3,7 @@
 // ============================================================
 
 export const CONTACT = {
-  email: 'guru.editors@gmail.com',
+  email: 'thegurueditors00@gmail.com',
   whatsappNumber: '923010424240',
   whatsappDefaultMessage: "Hi Guru Editors 👋 I'd like to discuss a video editing project.",
   web3formsAccessKey: '8a2a1eb4-3dce-4fbb-ad0b-cf694a7dee36',
