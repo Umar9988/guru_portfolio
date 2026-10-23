@@ -16,7 +16,7 @@ function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
+      setScrolled(window.scrollY > 30)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -37,20 +37,20 @@ function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
+        className={`fixed top-0 left-0 z-50 w-full transition-all duration-500 ease-in-out ${
           scrolled
-            ? 'bg-black/90 backdrop-blur-xl border-b border-white/10 py-3'
-            : 'bg-transparent py-6'
+            ? 'bg-black/75 backdrop-blur-md py-3.5 shadow-xl shadow-black/40'
+            : 'bg-gradient-to-b from-black/60 via-black/20 to-transparent py-6'
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
 
-          {/* Logo - Increased Size Here */}
+          {/* Logo */}
           <NavLink to="/" className="flex items-center gap-3 relative z-50" onClick={closeMobile}>
             <img
               src={guruLogo}
               alt="Guru Editors Logo"
-              className={`object-contain rounded-full transition-all duration-300 ${
+              className={`object-contain rounded-full transition-all duration-500 ease-in-out ${
                 scrolled ? 'h-12 md:h-14' : 'h-16 md:h-20'
               }`}
             />
@@ -64,9 +64,9 @@ function Header() {
                 to={link.to}
                 end={link.to === '/'}
                 className={({ isActive }) =>
-                  `relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  `relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                     isActive
-                      ? 'text-green-500 bg-green-500/10'
+                      ? 'text-green-400 bg-green-500/10'
                       : 'text-gray-300 hover:text-white hover:bg-white/5'
                   }`
                 }
@@ -79,7 +79,7 @@ function Header() {
           {/* Desktop CTA */}
           <Link
             to="/contact"
-            className="hidden md:inline-flex items-center gap-2 rounded-lg bg-green-600 px-6 py-2.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-green-500 hover:shadow-lg hover:shadow-green-600/20"
+            className="hidden md:inline-flex items-center gap-2 rounded-lg bg-green-600 px-6 py-2.5 text-sm font-semibold text-black transition-all duration-300 hover:bg-green-500 hover:shadow-lg hover:shadow-green-600/20"
           >
             Let's Talk
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -102,7 +102,7 @@ function Header() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-black/95 backdrop-blur-xl transition-all duration-500 md:hidden ${
+        className={`fixed inset-0 z-40 bg-black/95 backdrop-blur-2xl transition-all duration-500 md:hidden ${
           mobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
       >
